@@ -6,6 +6,7 @@ import com.beepkart.tableau_android.models.AuthRequest
 import com.beepkart.tableau_android.models.Credentials
 import com.beepkart.tableau_android.models.TableauAuth
 import com.google.gson.Gson
+import fr.arnaudguyon.xmltojsonlib.XmlToJson
 
 /**
  * Created on : September 26, 2023
