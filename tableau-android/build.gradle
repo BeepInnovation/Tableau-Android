@@ -45,3 +45,15 @@ dependencies {
 
     implementation 'com.github.smart-fun:XmlToJson:1.5.3'
 }
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.beepkart'
+                artifactId = 'tableau_android'
+                version = '1.0.6'
+            }
+        }
+    }
+}
