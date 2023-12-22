@@ -9,6 +9,7 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.QueryMap
+import retrofit2.http.Url
 
 interface TableauService {
 
@@ -23,4 +24,12 @@ interface TableauService {
         @Path("view-id") viewId: String,
         @QueryMap filters: Map<String, String>
     ): ResponseBody
+
+    @GET
+    suspend fun generateToken(
+        @Url url: String,
+        @Header("authorization") authToken: String,
+        @Header("appname") appName: String,
+        @Header("userid") userId: String
+    ): String?
 }

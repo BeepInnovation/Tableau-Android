@@ -45,4 +45,18 @@ class TableauRepository {
             return null
         }
     }
+
+    suspend fun generateToken(
+        url: String,
+        authToken: String,
+        appName: String,
+        userId: String
+    ): String? {
+        return try {
+            tableauService.generateToken(url, authToken, appName, userId)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
 }

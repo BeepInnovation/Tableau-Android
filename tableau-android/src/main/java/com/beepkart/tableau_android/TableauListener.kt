@@ -10,4 +10,5 @@ import android.graphics.Bitmap
 interface TableauListener {
     fun onTableauSignResponse(isSuccessful: Boolean, response: String)
     fun onTableauImageResponse(bitmap: Bitmap?)
+    fun onTableauTokenResponse(response: String?)
 }
