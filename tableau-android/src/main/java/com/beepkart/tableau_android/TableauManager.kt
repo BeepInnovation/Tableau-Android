@@ -30,6 +30,10 @@ class TableauManager(private val listener: TableauListener) {
         return TableauDashboard()
     }
 
+    fun generateJwtForUser(url: String, authToken: String, appName: String, userId: String) {
+        TableauDashboard().generateToken(url, authToken, appName, userId)
+    }
+
     inner class TableauDashboard {
 
         private suspend fun tableauSignIn(): Credentials? {
@@ -50,6 +54,15 @@ class TableauManager(private val listener: TableauListener) {
                     withContext(Dispatchers.Main) {
                         listener.onTableauSignResponse(false, "Authentication Failed")
                     }
+                }
+            }
+        }
+
+        fun generateToken(url: String, authToken: String, appName: String, userId: String) {
+            CoroutineScope(Dispatchers.IO).launch {
+                val token = TableauRepository().generateToken(url, authToken, appName, userId)
+                withContext(Dispatchers.Main) {
+                    listener.onTableauTokenResponse(token)
                 }
             }
         }
