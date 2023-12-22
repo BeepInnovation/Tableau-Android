@@ -7,6 +7,7 @@ import com.beepkart.tableau_android.models.Credentials
 import com.beepkart.tableau_android.models.TableauAuth
 import com.google.gson.Gson
 import fr.arnaudguyon.xmltojsonlib.XmlToJson
+import okhttp3.ResponseBody
 
 /**
  * Created on : September 26, 2023
@@ -51,7 +52,7 @@ class TableauRepository {
         authToken: String,
         appName: String,
         userId: String
-    ): String? {
+    ): ResponseBody? {
         return try {
             tableauService.generateToken(url, authToken, appName, userId)
         } catch (e: Exception) {

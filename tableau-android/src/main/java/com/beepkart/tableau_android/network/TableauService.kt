@@ -31,5 +31,5 @@ interface TableauService {
         @Header("authorization") authToken: String,
         @Header("appname") appName: String,
         @Header("userid") userId: String
-    ): String?
+    ): ResponseBody?
 }

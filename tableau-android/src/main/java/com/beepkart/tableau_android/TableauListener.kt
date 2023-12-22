@@ -1,6 +1,7 @@
 package com.beepkart.tableau_android
 
 import android.graphics.Bitmap
+import okhttp3.ResponseBody
 
 /**
  * Created on : September 26, 2023
@@ -10,5 +11,5 @@ import android.graphics.Bitmap
 interface TableauListener {
     fun onTableauSignResponse(isSuccessful: Boolean, response: String)
     fun onTableauImageResponse(bitmap: Bitmap?)
-    fun onTableauTokenResponse(response: String?)
+    fun onTableauTokenResponse(response: ResponseBody?)
 }
